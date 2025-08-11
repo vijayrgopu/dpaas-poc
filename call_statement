@@ -1,0 +1,2 @@
+%python
+dbutils.notebook.run("./update_scd_in_subs_status.py", 180, {"IN_SUBSCRIPTION_CATEGORY": "STAL","IN_CALC_DAYS_BACK": 3,"IN_FULL_LOAD" : "no","DEFAULT_START_DT" : "2021-09-10"})
