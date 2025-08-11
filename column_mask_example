@@ -1,0 +1,19 @@
+%sql
+USE dpaas_uccatalog_stg.adxdemo;
+CREATE OR REPLACE FUNCTION SSN_MASK(ssn STRING)
+  RETURN CASE WHEN is_member('HR') THEN SSN ELSE '***-**-****' END;
+
+%sql
+USE dpaas_uccatalog_stg.adxdemo;
+CREATE TABLE EMPLOYEE (
+  EMP_NAME STRING,
+  SSN STRING MASK SSN_MASK
+);
+INSERT INTO EMPLOYEE (EMP_NAME, SSN)
+VALUES
+    ('Will Blake', '000-20-7984'),
+    ('Esther Bopp', '000-21-4281'),
+    ('Bob Marley', '000-22-1234');
+
+%sql
+SELECT * FROM adxdemo.EMPLOYEE;
