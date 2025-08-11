@@ -1,0 +1,44 @@
+%python
+ 
+from pyspark.sql import SparkSession
+from pyspark import SparkContext, SparkConf
+ 
+spark = SparkSession.builder \
+    .appName("truncate_processing_tables_for_update_scd_in_subscription_status") \
+    .getOrCreate()
+ 
+# _2 at the end of the table is an iteration number used and can be removed
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_FPLT_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_FPLT2_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_FPLT3_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS2_2")
+ 
+spark.sql("TRUNCATE TABLE ADXDEMO.SALES_DOCS_CANCEL_REASON_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS_S3_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS_G2_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.CONTRACT_START_DT_RECS_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DIM_SUB_SCD_2")
+ 
+spark.sql("TRUNCATE TABLE ADXDEMO.CONT_ST_RECS_SCD_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_FPLT2_SCD_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_FPLT3_SCD_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS_S3_SCD_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS_G2_SCD_2")
+ 
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS_SCD_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.BILL_DOCS2_SCD_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.TMP_DELTA_SCD_SD_BP_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.TMP_BILL_DOC_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.TMP_BILL_DOC2_2")
+ 
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_REC_STATUS_CASE_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_REC_STATUS_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_REC_UNION_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_REC_2")
+spark.sql("TRUNCATE TABLE ADXDEMO.DF_FPLT_2")
+ 
+spark.sql("TRUNCATE TABLE ADXDEMO.DELTA_SCD_SD_ALL_2")
+ 
+#Truncate Part C Tables
+spark.sql("TRUNCATE TABLE ADXDEMO.SCD_IN_SUBS_STATUS_2")
